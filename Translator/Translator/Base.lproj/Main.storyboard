@@ -12,7 +12,7 @@
         <!--Translator-->
         <scene sceneID="VdX-fV-2z1">
             <objects>
-                <viewController id="FWN-r0-TjK" customClass="ViewController" customModule="Translator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FWN-r0-TjK" customClass="MainViewController" customModule="Translator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ski-w1-9aK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,9 +29,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVR-1D-KRu" userLabel="Middle Stack View">
                                 <rect key="frame" x="51" y="260" width="291" height="176"/>
                                 <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-EG-lve">
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-EG-lve" userLabel="MiddleLeftView">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="176"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQH-DB-BMI">
+                                                <rect key="frame" x="54" y="44" width="70" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="Fmi-Dp-wQr"/>
+                                                    <constraint firstAttribute="height" constant="70" id="xfi-Kb-YCH"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwK-wx-Qlu">
                                                 <rect key="frame" x="54" y="44" width="70" height="70"/>
                                                 <constraints>
@@ -40,6 +47,9 @@
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="microphoneButtonPressed:" destination="FWN-r0-TjK" eventType="touchUpInside" id="qL8-K8-VqQ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Speak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-4K-5qv">
                                                 <rect key="frame" x="41" y="138" width="96" height="20.333333333333343"/>
@@ -50,10 +60,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="AwK-wx-Qlu" secondAttribute="trailing" constant="54" id="9re-n9-Nre"/>
+                                            <constraint firstItem="OQH-DB-BMI" firstAttribute="centerX" secondItem="Vid-EG-lve" secondAttribute="centerX" id="0MW-bF-EzB"/>
+                                            <constraint firstItem="AwK-wx-Qlu" firstAttribute="centerX" secondItem="Vid-EG-lve" secondAttribute="centerX" id="2dp-IW-css"/>
                                             <constraint firstItem="gZJ-4K-5qv" firstAttribute="centerX" secondItem="Vid-EG-lve" secondAttribute="centerX" id="Gmz-ZK-Vrx"/>
+                                            <constraint firstItem="OQH-DB-BMI" firstAttribute="top" secondItem="Vid-EG-lve" secondAttribute="top" constant="44" id="NA5-uB-YV6"/>
                                             <constraint firstItem="AwK-wx-Qlu" firstAttribute="top" secondItem="Vid-EG-lve" secondAttribute="top" constant="44" id="Tbd-Cs-Umb"/>
-                                            <constraint firstItem="AwK-wx-Qlu" firstAttribute="leading" secondItem="Vid-EG-lve" secondAttribute="leading" constant="54" id="U8d-eA-ddt"/>
                                             <constraint firstItem="gZJ-4K-5qv" firstAttribute="top" secondItem="AwK-wx-Qlu" secondAttribute="bottom" constant="24" id="Xai-hp-NJ4"/>
                                             <constraint firstAttribute="width" constant="178" id="vbq-tk-08v"/>
                                         </constraints>
@@ -267,9 +278,14 @@
                     <connections>
                         <outlet property="clickerButton" destination="GnZ-0L-rkh" id="ltM-cH-4AX"/>
                         <outlet property="mainAnimalImage" destination="zfj-D9-4Q5" id="oKc-wn-Zud"/>
-                        <outlet property="microphoneButton" destination="AwK-wx-Qlu" id="jlE-2P-VNG"/>
+                        <outlet property="middleImageView" destination="OQH-DB-BMI" id="e4a-MF-bEr"/>
+                        <outlet property="middleStackView" destination="JVR-1D-KRu" id="Tef-pq-uPh"/>
                         <outlet property="pet1Button" destination="IUT-0e-3RY" id="pE3-aw-4Gj"/>
                         <outlet property="pet2Button" destination="gpx-PX-Tkn" id="eh7-vN-lxK"/>
+                        <outlet property="recordingButton" destination="AwK-wx-Qlu" id="jlE-2P-VNG"/>
+                        <outlet property="recordingLabel" destination="gZJ-4K-5qv" id="Bqd-gt-cSk"/>
+                        <outlet property="topLabel" destination="fh6-hJ-clB" id="8np-PF-vYL"/>
+                        <outlet property="topStackView" destination="9nl-Hp-r9k" id="7pl-at-2O9"/>
                         <outlet property="translateButton" destination="Cwh-zO-yRy" id="SP8-oe-cpD"/>
                         <outletCollection property="themedViews" destination="Vid-EG-lve" collectionClass="NSMutableArray" id="gPb-F7-Gcv"/>
                         <outletCollection property="themedViews" destination="Xdy-uV-IR3" collectionClass="NSMutableArray" id="6Wx-WQ-W5P"/>
@@ -279,6 +295,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAZ-mM-0hp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2849.6183206106871" y="-80.281690140845072"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Obh-Lp-qYA">
+            <objects>
+                <viewController id="ioz-qg-pP4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="219-cd-yuy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DE5-to-Mce"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIT-sp-ShM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3836" y="-80"/>
         </scene>
     </scenes>
     <resources>
