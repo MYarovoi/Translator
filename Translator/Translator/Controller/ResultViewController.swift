@@ -17,4 +17,13 @@ class ResultViewController: UIViewController {
     private func configureUi() {
         view.applyGradient()
     }
+    
+    
+    private func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backButtonAction(_ sender: Any) {
+        backButtonTapped()
+    }
 }
