@@ -12,6 +12,7 @@ extension UIColor {
     static let themeWhiteShade = UIColor("#F3F5F6")
     static let themeGreenShade = UIColor("#C9FFE0")
     static let themeWhiteForView = UIColor("#FFFFFF")
+    static let themepurpleForMessageView = UIColor("#D6DCFF")
     
     convenience init(_ hex: String, alpha: CGFloat = 1.0) {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

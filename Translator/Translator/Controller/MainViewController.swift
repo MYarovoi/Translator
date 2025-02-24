@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
     }
     
     private func configureUi() {
-//        navigationController?.setNavigationBarHidden(true, animated: false)
         
         let buttonsWithImages: [(UIButton, String)] = [
             (pet1Button, "Pet1"),
@@ -146,14 +145,16 @@ class MainViewController: UIViewController {
         }
     }
     
+    
     //MARK: - IBOutlets
     
     @IBAction func pet1ButtonPressed(_ sender: UIButton) {
         mainAnimalImage.image = UIImage(named: "cat 2")
         pet2Button.imageView?.image = UIImage(named: "Pet2")?.applyBlur(radius: 2)
         
-        if let nextVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Result") as? ResultViewController {
-            nextVC.modalPresentationStyle = .fullScreen // Опционально
+        if let nextVC = storyboard?.instantiateViewController(withIdentifier: "Result") as? ResultViewController {
+            nextVC.mainImageName = mainAnimalImage.image
+            nextVC.modalPresentationStyle = .fullScreen
             present(nextVC, animated: true, completion: nil)
         }
     }
