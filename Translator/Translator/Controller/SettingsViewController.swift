@@ -21,12 +21,16 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.applyGradient()
         
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
+        
+        view.applyGradient()
+
         
         // Настройка таблицы
         tableView.dataSource = self  // Устанавливаем dataSource
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
+        tableView.backgroundColor = .clear
         
         let buttonsWithImages: [(UIButton, String)] = [
             (translateButton, "Message-2"),
@@ -55,8 +59,11 @@ extension SettingsViewController: UITableViewDataSource {
     
     // Настройка ячеек таблицы
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = menuItems[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.mainLabel.text = menuItems[indexPath.row]
         return cell
     }
 }
