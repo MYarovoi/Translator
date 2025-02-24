@@ -168,4 +168,10 @@ class MainViewController: UIViewController {
         handleRecordingButtonUi(status: recordingStatus)
     }
     
+    @IBAction func clickerButtonPressed(_ sender: UIButton) {
+        if let settingsVC = storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") {
+            settingsVC.modalPresentationStyle = .fullScreen // Или другой стиль презентации
+            present(settingsVC, animated: true, completion: nil)
+        }
+    }
 }
