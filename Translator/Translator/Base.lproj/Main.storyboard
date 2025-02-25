@@ -152,7 +152,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-D9-4Q5">
                                 <rect key="frame" x="104.66666666666669" y="465" width="184" height="184"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="184" id="fzI-Wa-deE"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="184" id="fzI-Wa-deE"/>
                                     <constraint firstAttribute="width" constant="184" id="r7t-tG-M1w"/>
                                 </constraints>
                             </imageView>
@@ -223,7 +223,7 @@
                                     <constraint firstItem="Czj-QR-dtp" firstAttribute="top" secondItem="dwO-zd-bAS" secondAttribute="top" constant="19" id="Kiz-FY-lPD"/>
                                     <constraint firstAttribute="bottom" secondItem="Czj-QR-dtp" secondAttribute="bottom" constant="19" id="M9f-CJ-hey"/>
                                     <constraint firstAttribute="trailing" secondItem="Czj-QR-dtp" secondAttribute="trailing" id="Yfz-7I-Uvq"/>
-                                    <constraint firstAttribute="height" constant="82" id="bHr-TF-WN0"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="82" id="bHr-TF-WN0"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
