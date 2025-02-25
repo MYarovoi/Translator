@@ -66,5 +66,9 @@ extension SettingsViewController: UITableViewDataSource {
         cell.mainLabel.text = menuItems[indexPath.row]
         return cell
     }
+    
+    @IBAction func translateButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 

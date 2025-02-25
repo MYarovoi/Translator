@@ -49,8 +49,8 @@ class MessageBubbleView: UIView {
         path.fill()
         
         let textAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18),
-            .foregroundColor: UIColor.white
+            .font: UIFont(name: "Konkhmer Sleokchher", size: 12) ?? UIFont.systemFont(ofSize: 12),
+            .foregroundColor: UIColor.black
         ]
         
         let textSize = text.size(withAttributes: textAttributes)

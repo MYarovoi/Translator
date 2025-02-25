@@ -9,6 +9,7 @@ import UIKit
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var mainAnimalImageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     let model = Quotes()
     var mainImageName: UIImage?
     
@@ -20,6 +21,7 @@ class ResultViewController: UIViewController {
         button.backgroundColor = .themepurpleForMessageView
         button.setTitle("Repeat", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Konkhmer Sleokchher", size: 12)
         button.setImage(UIImage(systemName: "arrow.trianglehead.clockwise.rotate.90"), for: .normal)
         button.tintColor = .black
         
@@ -99,5 +101,11 @@ class ResultViewController: UIViewController {
     
     @objc func repeatButtonTapped() {
         backButtonTapped()
+    }
+}
+
+extension ResultViewController {
+    private func setCastomFont() {
+        label.font = UIFont(name: "Konkhmer Sleokchher", size: 32)
     }
 }

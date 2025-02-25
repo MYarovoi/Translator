@@ -26,6 +26,7 @@ class CustomTableViewCell: UITableViewCell {
     
      let mainLabel: UILabel = {
         let label = UILabel()
+         label.font = UIFont(name: "Konkhmer Sleokchher", size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,7 +34,8 @@ class CustomTableViewCell: UITableViewCell {
     private let rightImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "chevron.right")
+        imageView.image = UIImage(systemName: "chevron.right")?.withRenderingMode(.alwaysOriginal)
+        imageView.tintColor = .black
         return imageView
     }()
     
