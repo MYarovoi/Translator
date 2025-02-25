@@ -8,7 +8,10 @@
 import AVFoundation
 
 class AudioRecorderManager {
-    var audioRecorder: AVAudioRecorder?
+    
+    //MARK: - Variables
+    
+    private var audioRecorder: AVAudioRecorder?
     
     func requestPermission(completion: @escaping (Bool) -> Void) {
         if #available(iOS 17.0, *) {
@@ -52,6 +55,18 @@ class AudioRecorderManager {
     func stopRecording() {
         audioRecorder?.stop()
         print("DEBUG: Recording successfully saved to: \(getFilePath().path)")
+    }
+    
+    func deleteRecording() {
+        let filePath = getFilePath()
+        
+        let fileManager = FileManager.default
+        do {
+            try fileManager.removeItem(at: filePath)
+            print("DEBUG: Recording successfully deleted.")
+        } catch {
+            print("DEBUG: Error deleting file - \(error.localizedDescription)")
+        }
     }
     
     private func getFilePath() -> URL {

@@ -9,47 +9,40 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    //MARK: - UI Elements
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var clickerButton: UIButton!
+    @IBOutlet var bottomViewLabels: [UILabel]!
 
+    //MARK: - Variables
     
-    private let menuItems = ["Rate us", "Share App", "Contact Us", "Restore Purchases", "Privacy Policy", "Terms of Use"]
+    private let menuItems = ["Rate us",
+                             "Share App",
+                             "Contact Us",
+                             "Restore Purchases",
+                             "Privacy Policy",
+                             "Terms of Use"]
     
-    
-
-    
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
-        
-        view.applyGradient()
-
-        
-        // Настройка таблицы
-        tableView.dataSource = self  // Устанавливаем dataSource
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
-        tableView.backgroundColor = .clear
-        
-        let buttonsWithImages: [(UIButton, String)] = [
-            (translateButton, "Message-2"),
-            (clickerButton, "gear")
-        ]
-        
-        buttonsWithImages.forEach { button, imageName in
-            getResizedImageFor(button: button, imageName: imageName)
-        }
+        configureUi()
     }
     
-    private func getResizedImageFor(button: UIButton, imageName: String) {
-        if let originalImage = UIImage(named: imageName) {
-            let resizedImage = originalImage.resized(toWidth: button.bounds.width)
-            button.setImage(resizedImage, for: .normal)
-        }
+    private func configureUi() {
+        view.applyGradient()
+        setCustomFont()
+        
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
+        tableView.backgroundColor = .clear
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
     }
 }
 
+//MARK: - UITableViewDataSource
 
 extension SettingsViewController: UITableViewDataSource {
     
@@ -57,13 +50,12 @@ extension SettingsViewController: UITableViewDataSource {
         return menuItems.count
     }
     
-    // Настройка ячеек таблицы
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.mainLabel.text = menuItems[indexPath.row]
+        cell.configure(with: menuItems[indexPath.row])
         return cell
     }
     
@@ -72,3 +64,12 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - Set Custom Font
+
+extension SettingsViewController {
+    private func setCustomFont() {
+        bottomViewLabels.forEach { label in
+            label.font = .konkhmer(size: 12)
+        }
+    }
+}

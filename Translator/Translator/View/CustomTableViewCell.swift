@@ -9,6 +9,8 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
+    //MARK: - UI Elements
+    
     private let view: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -24,9 +26,9 @@ class CustomTableViewCell: UITableViewCell {
         return view
     }()
     
-     let mainLabel: UILabel = {
+    private let mainLabel: UILabel = {
         let label = UILabel()
-         label.font = UIFont(name: "Konkhmer Sleokchher", size: 16)
+        label.font = .konkhmer(size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -39,7 +41,8 @@ class CustomTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    // MARK: - Инициализация ячейки
+    // MARK: - Cell Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -51,14 +54,13 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Setup UI
     private func setupViews() {
-        // Добавляем `view` в `contentView`
         contentView.addSubview(view)
         view.addSubview(bulletView)
         bulletView.addSubview(mainLabel)
         bulletView.addSubview(rightImageView)
         
-        // Устанавливаем Auto Layout constraints
         NSLayoutConstraint.activate([
             view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -78,5 +80,8 @@ class CustomTableViewCell: UITableViewCell {
             rightImageView.trailingAnchor.constraint(equalTo: bulletView.trailingAnchor, constant: -13)
         ])
     }
+    
+    func configure(with text: String) {
+        mainLabel.text = text
+    }
 }
-

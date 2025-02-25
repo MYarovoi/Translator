@@ -8,20 +8,25 @@
 import UIKit
 
 class MessageBubbleView: UIView {
+    //MARK: - Variables
     
-    let text: String
+    private let text: String
+    
+    // MARK: - Initialization
     
     init(quote: String) {
         self.text = quote
         super.init(frame: CGRect(x: 0, y: 0, width: 291, height: 142))
         backgroundColor = .clear
     }
-      
-      required init?(coder: NSCoder) {
-          self.text = ""
-          super.init(coder: coder)
-          backgroundColor = .clear
-      }
+    
+    required init?(coder: NSCoder) {
+        self.text = ""
+        super.init(coder: coder)
+        backgroundColor = .clear
+    }
+    
+    //MARK: - Deaw func
     
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
@@ -30,21 +35,20 @@ class MessageBubbleView: UIView {
         let tailHeight: CGFloat = 110
         let tailOffset: CGFloat = 35
         let bubbleRect = CGRect(x: 0, y: 0, width: rect.width, height: rect.height - tailHeight)
-
+        
         let bubblePath = UIBezierPath(roundedRect: bubbleRect, cornerRadius: cornerRadius)
         path.append(bubblePath)
-
-    
+        
         let tailStartX = bubbleRect.maxX - tailOffset
         let tailStartY = bubbleRect.maxY
         let tailEndX = tailStartX - tailWidth - 50
         let tailEndY = rect.maxY
-
+        
         path.move(to: CGPoint(x: tailStartX, y: tailStartY))
         path.addLine(to: CGPoint(x: tailEndX, y: tailEndY))
         path.addLine(to: CGPoint(x: tailStartX + tailWidth, y: tailStartY))
         path.close()
-
+        
         UIColor.themepurpleForMessageView.setFill()
         path.fill()
         
@@ -54,15 +58,14 @@ class MessageBubbleView: UIView {
         ]
         
         let textSize = text.size(withAttributes: textAttributes)
-              
+        
         let textRect = CGRect(
             x: (rect.width - textSize.width) / 2,
             y: (bubbleRect.height - textSize.height) / 2,
             width: textSize.width,
             height: textSize.height
         )
-              
-              text.draw(in: textRect, withAttributes: textAttributes)
+        
+        text.draw(in: textRect, withAttributes: textAttributes)
     }
 }
-

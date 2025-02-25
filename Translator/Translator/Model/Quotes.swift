@@ -8,5 +8,6 @@
 import Foundation
 
 struct Quotes {
-    let quote = ["I'm hundgy, feed me", "What are you doing, human?"]
+    let quote = ["I'm hundgy, feed me",
+                 "What are you doing, human?"]
 }

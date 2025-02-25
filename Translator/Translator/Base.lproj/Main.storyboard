@@ -27,12 +27,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVR-1D-KRu" userLabel="Middle Stack View">
-                                <rect key="frame" x="51" y="260" width="291" height="176"/>
+                                <rect key="frame" x="51" y="238" width="291" height="176"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vid-EG-lve" userLabel="MiddleLeftView">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="176"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OQH-DB-BMI">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone-2" translatesAutoresizingMaskIntoConstraints="NO" id="OQH-DB-BMI">
                                                 <rect key="frame" x="54" y="44" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="Fmi-Dp-wQr"/>
@@ -52,8 +52,8 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Speak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZJ-4K-5qv">
-                                                <rect key="frame" x="41" y="138" width="96" height="20.333333333333343"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <rect key="frame" x="41.666666666666671" y="138" width="95.000000000000014" height="20.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -83,14 +83,20 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NJg-x5-XaD">
                                                 <rect key="frame" x="18.666666666666657" y="9" width="70" height="158"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUT-0e-3RY">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUT-0e-3RY">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" red="0.88913059230000002" green="0.94499474760000002" blue="0.99517148730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="PpK-at-R1P"/>
                                                             <constraint firstAttribute="width" constant="70" id="jZc-aD-y3w"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="Pet1"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="pet1ButtonPressed:" destination="FWN-r0-TjK" eventType="touchUpInside" id="6A8-Zt-0kJ"/>
                                                         </connections>
@@ -100,12 +106,18 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpx-PX-Tkn">
                                                         <rect key="frame" x="0.0" y="88" width="70" height="70"/>
+                                                        <color key="backgroundColor" red="0.92489838599999996" green="0.98485833410000001" blue="0.78125959629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="6sZ-PG-QZG"/>
                                                             <constraint firstAttribute="width" constant="70" id="8Ot-K8-zCx"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="Pet2"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="pet2ButtonPressed:" destination="FWN-r0-TjK" eventType="touchUpInside" id="fwJ-nO-u0f"/>
                                                         </connections>
@@ -138,14 +150,14 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-D9-4Q5">
-                                <rect key="frame" x="104.66666666666669" y="487" width="184" height="184"/>
+                                <rect key="frame" x="104.66666666666669" y="465" width="184" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="184" id="fzI-Wa-deE"/>
                                     <constraint firstAttribute="width" constant="184" id="r7t-tG-M1w"/>
                                 </constraints>
                             </imageView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwO-zd-bAS" userLabel="Bottom View">
-                                <rect key="frame" x="87" y="707" width="219" height="82"/>
+                                <rect key="frame" x="87" y="685" width="219" height="82"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Czj-QR-dtp">
                                         <rect key="frame" x="0.0" y="19" width="219" height="44"/>
@@ -160,7 +172,7 @@
                                                             <constraint firstAttribute="width" constant="24" id="r7g-rf-cqT"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="Message-2"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="messages-21"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1J-bg-CLV">
                                                         <rect key="frame" x="0.0" y="30" width="70" height="14"/>
@@ -179,8 +191,9 @@
                                                             <constraint firstAttribute="height" constant="24" id="RZe-td-HdY"/>
                                                             <constraint firstAttribute="width" constant="24" id="lHR-Jd-410"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="gear"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
                                                         <connections>
                                                             <action selector="clickerButtonPressed:" destination="FWN-r0-TjK" eventType="touchUpInside" id="Vo5-QJ-gy7"/>
                                                         </connections>
@@ -219,50 +232,34 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nl-Hp-r9k" userLabel="Top Stack View">
-                                <rect key="frame" x="40" y="141" width="313" height="61"/>
+                                <rect key="frame" x="40" y="141" width="313" height="39"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgF-en-f45">
-                                        <rect key="frame" x="0.0" y="0.0" width="135" height="61"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="HUMAN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gC-hR-ylz">
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="39"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="135" id="Dfj-Iv-fI0"/>
-                                            <constraint firstAttribute="height" constant="61" id="QBi-sY-DD5"/>
+                                            <constraint firstAttribute="width" constant="135" id="IM3-is-jgX"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-Cf-qWS">
+                                        <rect key="frame" x="135" y="0.0" width="43" height="39"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="HUMAN"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrow-swap-horizontal"/>
                                         <connections>
-                                            <action selector="translateFromToButtonTapped:" destination="FWN-r0-TjK" eventType="touchUpInside" id="P43-Hg-TTC"/>
+                                            <action selector="changeLanguageButtonPressed:" destination="FWN-r0-TjK" eventType="touchUpInside" id="Y9n-RD-DAY"/>
                                         </connections>
                                     </button>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOG-8k-01p" userLabel="Space">
-                                        <rect key="frame" x="135" y="0.0" width="43" height="61"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-swap-horizontal" translatesAutoresizingMaskIntoConstraints="NO" id="saB-fS-tBL">
-                                                <rect key="frame" x="9.6666666666666572" y="18.666666666666657" width="24" height="24"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="24" id="99e-go-cz0"/>
-                                                    <constraint firstAttribute="height" constant="24" id="NoV-0I-8Jt"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="PET" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-gQ-l7Q">
+                                        <rect key="frame" x="178" y="0.0" width="135" height="39"/>
                                         <constraints>
-                                            <constraint firstItem="saB-fS-tBL" firstAttribute="centerX" secondItem="GOG-8k-01p" secondAttribute="centerX" id="FDQ-Wr-PZD"/>
-                                            <constraint firstItem="saB-fS-tBL" firstAttribute="centerY" secondItem="GOG-8k-01p" secondAttribute="centerY" id="t3z-LB-0I9"/>
+                                            <constraint firstAttribute="width" constant="135" id="rlR-Zs-F8K"/>
                                         </constraints>
-                                    </view>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzl-1u-VaM">
-                                        <rect key="frame" x="178" y="0.0" width="135" height="61"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="61" id="V8a-ec-2ky"/>
-                                            <constraint firstAttribute="width" constant="135" id="jNk-K2-gJY"/>
-                                        </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="PET"/>
-                                        <connections>
-                                            <action selector="translateFromToButtonTapped:" destination="FWN-r0-TjK" eventType="touchUpInside" id="b0t-Rj-1rp"/>
-                                        </connections>
-                                    </button>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -288,12 +285,14 @@
                     <navigationItem key="navigationItem" id="HCa-GX-fyr"/>
                     <connections>
                         <outlet property="clickerButton" destination="GnZ-0L-rkh" id="ltM-cH-4AX"/>
+                        <outlet property="language1Label" destination="6gC-hR-ylz" id="23C-Bu-KEN"/>
+                        <outlet property="language2Label" destination="Vuw-gQ-l7Q" id="ZbE-s4-beX"/>
                         <outlet property="mainAnimalImage" destination="zfj-D9-4Q5" id="oKc-wn-Zud"/>
                         <outlet property="middleImageView" destination="OQH-DB-BMI" id="e4a-MF-bEr"/>
                         <outlet property="middleStackView" destination="JVR-1D-KRu" id="Tef-pq-uPh"/>
                         <outlet property="pet1Button" destination="IUT-0e-3RY" id="pE3-aw-4Gj"/>
                         <outlet property="pet2Button" destination="gpx-PX-Tkn" id="eh7-vN-lxK"/>
-                        <outlet property="recordingButton" destination="AwK-wx-Qlu" id="jlE-2P-VNG"/>
+                        <outlet property="recordingButton" destination="AwK-wx-Qlu" id="0fh-WH-Wqk"/>
                         <outlet property="recordingLabel" destination="gZJ-4K-5qv" id="Bqd-gt-cSk"/>
                         <outlet property="topLabel" destination="fh6-hJ-clB" id="8np-PF-vYL"/>
                         <outlet property="topStackView" destination="9nl-Hp-r9k" id="7pl-at-2O9"/>
@@ -301,8 +300,6 @@
                         <outletCollection property="themedViews" destination="Vid-EG-lve" collectionClass="NSMutableArray" id="gPb-F7-Gcv"/>
                         <outletCollection property="themedViews" destination="Xdy-uV-IR3" collectionClass="NSMutableArray" id="6Wx-WQ-W5P"/>
                         <outletCollection property="themedViews" destination="dwO-zd-bAS" collectionClass="NSMutableArray" id="mZe-OY-iIt"/>
-                        <outletCollection property="topButtons" destination="dgF-en-f45" collectionClass="NSMutableArray" id="RRp-MO-vR4"/>
-                        <outletCollection property="topButtons" destination="yzl-1u-VaM" collectionClass="NSMutableArray" id="33C-rd-mMX"/>
                         <outletCollection property="bottomViewLabels" destination="a1J-bg-CLV" collectionClass="NSMutableArray" id="wXN-wv-peA"/>
                         <outletCollection property="bottomViewLabels" destination="hGj-vq-rcc" collectionClass="NSMutableArray" id="xpO-Gq-yJ9"/>
                     </connections>
@@ -417,7 +414,7 @@
                                                             <constraint firstAttribute="height" constant="24" id="U3K-Jn-64n"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="Message-2"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="messages-21"/>
                                                         <connections>
                                                             <action selector="translateButtonTapped:" destination="kaT-YJ-oHn" eventType="touchUpInside" id="kWW-NR-Rl2"/>
                                                         </connections>
@@ -439,8 +436,9 @@
                                                             <constraint firstAttribute="height" constant="24" id="NvU-O4-lac"/>
                                                             <constraint firstAttribute="width" constant="24" id="ovR-ux-Qny"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="gear"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clicker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kB9-vF-jGU">
                                                         <rect key="frame" x="0.0" y="30" width="52.333333333333336" height="14"/>
@@ -508,6 +506,8 @@
                         <outlet property="clickerButton" destination="Ehw-ly-kut" id="RXO-lZ-t6Z"/>
                         <outlet property="tableView" destination="vIL-Ur-IHw" id="kRm-8W-rkO"/>
                         <outlet property="translateButton" destination="YTh-J6-frS" id="ljl-xT-EIk"/>
+                        <outletCollection property="bottomViewLabels" destination="gFa-ka-p9l" collectionClass="NSMutableArray" id="IXb-41-D3P"/>
+                        <outletCollection property="bottomViewLabels" destination="kB9-vF-jGU" collectionClass="NSMutableArray" id="kli-ec-uyF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i3T-vl-s8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -516,16 +516,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Message-2" width="49" height="48"/>
-        <image name="arrow-swap-horizontal" width="48" height="49"/>
+        <image name="Pet1" width="40" height="40"/>
+        <image name="Pet2" width="41" height="40"/>
+        <image name="arrow-swap-horizontal" width="24" height="25"/>
         <image name="dog" width="368" height="368"/>
-        <image name="gear" width="47" height="47"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="messages-21" width="25" height="24"/>
+        <image name="microphone-2" width="70" height="70"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

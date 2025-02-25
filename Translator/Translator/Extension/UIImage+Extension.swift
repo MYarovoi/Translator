@@ -9,69 +9,8 @@ import UIKit
 import ImageIO
 
 extension UIImage {
-    func resized(toWidth width: CGFloat) -> UIImage? {
-        let scale = width / size.width
-        let newHeight = size.height * scale
-        let newSize = CGSize(width: width, height: newHeight)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        draw(in: CGRect(origin: .zero, size: newSize))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
-    func applyBlur(radius: CGFloat) -> UIImage? {
-        let context = CIContext(options: nil)
-        guard let ciImage = CIImage(image: self),
-              let filter = CIFilter(name: "CIGaussianBlur") else { return nil }
-
-        filter.setValue(ciImage, forKey: kCIInputImageKey)
-        filter.setValue(radius, forKey: kCIInputRadiusKey) // Чем больше, тем сильнее размытие
-
-        guard let outputImage = filter.outputImage,
-              let cgImage = context.createCGImage(outputImage, from: ciImage.extent) else { return nil }
-
-        return UIImage(cgImage: cgImage)
-    }
-}
-
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-
-
-extension UIImage {
-    
-    public class func gifImageWithData(_ data: Data) -> UIImage? {
-        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-            print("image doesn't exist")
-            return nil
-        }
-        
-        return UIImage.animatedImageWithSource(source)
-    }
-    
-    public class func gifImageWithURL(_ gifUrl:String) -> UIImage? {
-        guard let bundleURL:URL = URL(string: gifUrl)
-            else {
-                print("image named \"\(gifUrl)\" doesn't exist")
-                return nil
-        }
-        guard let imageData = try? Data(contentsOf: bundleURL) else {
-            print("image named \"\(gifUrl)\" into NSData")
-            return nil
-        }
-        
-        return gifImageWithData(imageData)
-    }
+            
+    //MARK: - GIF Image Extension
     
     public class func gifImageWithName(_ name: String) -> UIImage? {
         guard let bundleURL = Bundle.main
@@ -84,7 +23,12 @@ extension UIImage {
             return nil
         }
         
-        return gifImageWithData(imageData)
+        guard let source = CGImageSourceCreateWithData(imageData as CFData, nil) else {
+            print("image doesn't exist")
+            return nil
+        }
+        
+        return UIImage.animatedImageWithSource(source)
     }
     
     class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
@@ -204,4 +148,15 @@ extension UIImage {
         
         return animation
     }
+}
+
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
 }

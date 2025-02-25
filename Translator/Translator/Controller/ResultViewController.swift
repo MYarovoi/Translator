@@ -8,14 +8,11 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    //MARK: - UI Elements
+    
     @IBOutlet weak var mainAnimalImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-    let model = Quotes()
-    var mainImageName: UIImage?
-    
-    var messageBubble: MessageBubbleView!
-    
-    
     private let repeatButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .themepurpleForMessageView
@@ -24,22 +21,25 @@ class ResultViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Konkhmer Sleokchher", size: 12)
         button.setImage(UIImage(systemName: "arrow.trianglehead.clockwise.rotate.90"), for: .normal)
         button.tintColor = .black
-        
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         button.layer.cornerRadius = 16
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: 291).isActive = true
         button.heightAnchor.constraint(equalToConstant: 54).isActive = true
         return button
     }()
     
+    //MARK: - Variables
+    
+    private let model = Quotes()
+    private var messageBubble: MessageBubbleView!
+    var mainImageName: UIImage?
+    
+    //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUi()
-        
-        repeatButton.addTarget(self, action: #selector(repeatButtonTapped), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,17 +48,16 @@ class ResultViewController: UIViewController {
     }
     
     private func configureUi() {
+        view.applyGradient()
+        setCustomFont()
+        
         if let imageName = mainImageName {
             mainAnimalImageView.image = imageName
         } else {
             mainAnimalImageView.image = UIImage(systemName: "questionmark")
         }
         
-        
         messageBubble = MessageBubbleView(quote: model.quote.randomElement() ?? "")
-        
-        view.applyGradient()
-        
         messageBubble.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(messageBubble)
         
@@ -70,13 +69,14 @@ class ResultViewController: UIViewController {
         ])
     }
     
-    
-    
-    
-    func showRepeatButton() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    private func showRepeatButton() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            guard let self = self else { return }
+            
             self.messageBubble.isHidden = true
             self.view.addSubview(self.repeatButton)
+            self.repeatButton.addTarget(self, action: #selector(self.repeatButtonTapped), for: .touchUpInside)
+            
             NSLayoutConstraint.activate([
                 self.repeatButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
                 self.repeatButton.bottomAnchor.constraint(equalTo: self.mainAnimalImageView.topAnchor, constant: -125)
@@ -84,28 +84,25 @@ class ResultViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    private func backButtonTapped() {
-        dismiss(animated: true, completion: nil)
+    @objc func repeatButtonTapped() {
+        backButtonTapped()
     }
+    
+    //MARK: - IBActions
     
     @IBAction func backButtonAction(_ sender: Any) {
         backButtonTapped()
     }
     
-    @objc func repeatButtonTapped() {
-        backButtonTapped()
+    private func backButtonTapped() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
+
+//MARK: - Set Custom Font
 extension ResultViewController {
-    private func setCastomFont() {
+    private func setCustomFont() {
         label.font = UIFont(name: "Konkhmer Sleokchher", size: 32)
     }
 }
